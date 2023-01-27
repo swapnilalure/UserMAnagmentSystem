@@ -1,0 +1,80 @@
+{
+  "employee": [
+    {
+      "id": 1,
+      "name": "swapnil",
+      "email": "swapnil@gmail.com",
+      "phone": "9371131415",
+      "active": true
+    },
+    {
+      "name": "Sanket",
+      "email": "sanket@gmail.com",
+      "phone": "9511621176",
+      "active": true,
+      "id": 2
+    }
+  ],
+  "user": [
+    {
+      "id": "1",
+      "userName": "Manish",
+      "emailId": "manish@gmail.com",
+      "password": "manish@123",
+      "mobile": "9512112233"
+    },
+    {
+      "id": "9jNKp7A",
+      "emailId": "varsha@gmail.com",
+      "userName": "varsha",
+      "mobile": "9211445566",
+      "password": "varsha@123"
+    },
+    {
+      "emailId": "manik@gmail.com",
+      "userName": "Manik",
+      "mobile": "9440121314",
+      "password": "manik@123",
+      "id": "giUUArX"
+    },
+    {
+      "emailId": "surekha@gmail.com",
+      "userName": "surekha",
+      "mobile": "9423556071",
+      "password": "surekha@123",
+      "id": "xSHMVr7"
+    },
+    {
+      "emailId": "swapnil@gmail.com",
+      "userName": "swapnil",
+      "mobile": "7041121314",
+      "password": "swapnil@12",
+      "id": "dd5VVKW"
+    },
+    {
+      "emailId": "swapnil@gmail.com",
+      "password": "swa",
+      "id": "G5H1ALy"
+    },
+    {
+      "emailId": "varsha@gmail.com",
+      "password": "varsha@123",
+      "id": "wImJrzX"
+    },
+    {
+      "emailId": "swapnil@gmail.com",
+      "password": "swa",
+      "id": "s9TUXnK"
+    },
+    {
+      "emailId": "varsha@gmail.com",
+      "password": "varsha@123",
+      "id": "7dJ_FTw"
+    },
+    {
+      "emailId": "swapnil@gmail.com",
+      "password": "swa",
+      "id": "Qg6AS5r"
+    }
+  ]
+}
