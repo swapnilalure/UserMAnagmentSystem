@@ -41,27 +41,32 @@ export default function LoginForm() {
         setFormErrors(validate(formValues));
         setIsSubmit(true);
 
-        for (let i = 0; i < empdata.length; i++) {
-            for (let j = 0; j < 5; j++) {
-                if (empdata[i].emailId === (formValues.emailId) && empdata[i].password === (formValues.password)) {
-                    isValid = true;
-                    id = '{empdata[i].id}'
-                    console.log("I am correct")
+        if(Object.keys(formErrors).length === 0 && isSubmit){
+
+            for (let i = 0; i < empdata.length; i++) {
+                for (let j = 0; j < 5; j++) {
+                    if (empdata[i].emailId === (formValues.emailId) && empdata[i].password === (formValues.password)) {
+                        isValid = true;
+                        id = '{empdata[i].id}'
+                        console.log("I am correct")
+                        break;
+                    }
+                }
+                if (isValid) {
                     break;
                 }
             }
+    
             if (isValid) {
-                break;
+                navigate("/Dashboard")
+            } else {
+                alert("Email or Password is wrong")
+                navigate('/LoginForm')
+    
             }
-        }
-
-        if (isValid) {
-            navigate("/Dashboard")
-        } else {
-            alert("Email or Password is wrong")
-            navigate('/LoginForm')
 
         }
+        
 
     }
 
@@ -74,6 +79,14 @@ export default function LoginForm() {
             console.log(err.message);
         })
     }, []);
+
+    useEffect(() => {
+        console.log(formErrors);
+        if(Object.keys(formErrors).length === 0 && isSubmit){
+            console.log(formValues);
+        }
+
+    }, [formErrors]);
 
     const validate = (values) => {
         const errors = {};
@@ -127,7 +140,7 @@ export default function LoginForm() {
                         </div>
                         <div className='form-text error'>{formErrors.password}</div>
                         <div className="col-12">
-                            <NavLink to='/Dashboard'><button type="submit" className="btn btn-primary">Login</button></NavLink>
+                            <button type="submit" className="btn btn-primary">Login</button>
                         </div>
                         </form>
                         <div className='col-12'>
