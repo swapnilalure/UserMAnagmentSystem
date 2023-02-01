@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import '../App.css';
+import { FcGoogle } from 'react-icons/fc'
+
+import { GoogleLoginButton } from "react-social-login-buttons";
+import { LoginSocialGoogle } from "reactjs-social-login";
+import Dashboard from './Dashboard';
+
 
 
 
@@ -17,12 +23,13 @@ export default function LoginForm() {
     const [empdata, empdatachange] = useState(null);
     const [formErrors, setFormErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
-   
+
 
     let isValid = false;
     let id = "";
-    
-    
+    const errors = {};
+
+
 
 
     const navigate = useNavigate();
@@ -41,14 +48,15 @@ export default function LoginForm() {
         setFormErrors(validate(formValues));
         setIsSubmit(true);
 
-        if(Object.keys(formErrors).length === 0 && isSubmit){
+        if (Object.keys(formErrors).length === 0 && isSubmit) {
 
             for (let i = 0; i < empdata.length; i++) {
                 for (let j = 0; j < 5; j++) {
-                    if (empdata[i].emailId === (formValues.emailId) && empdata[i].password === (formValues.password)) {
+                    if (empdata[i].emailId === (formValues.emailId) &&
+                        empdata[i].password === (formValues.password)) {
                         isValid = true;
-                        id = '{empdata[i].id}'
-                        console.log("I am correct")
+                        id = empdata[i].id
+                        console.log(empdata[i].id)
                         break;
                     }
                 }
@@ -56,17 +64,17 @@ export default function LoginForm() {
                     break;
                 }
             }
-    
+
             if (isValid) {
-                navigate("/Dashboard")
+                navigate("/Dashboard/" + id)
             } else {
-                alert("Email or Password is wrong")
-                navigate('/LoginForm')
-    
+                errors.password = "Email or Password is wrong";
+                return errors;
+
             }
 
         }
-        
+
 
     }
 
@@ -82,14 +90,14 @@ export default function LoginForm() {
 
     useEffect(() => {
         console.log(formErrors);
-        if(Object.keys(formErrors).length === 0 && isSubmit){
+        if (Object.keys(formErrors).length === 0 && isSubmit) {
             console.log(formValues);
         }
 
     }, [formErrors]);
 
     const validate = (values) => {
-        const errors = {};
+
 
         if (!values.emailId) {
             errors.emailId = "Email is required!";
@@ -101,7 +109,7 @@ export default function LoginForm() {
 
     }
 
-    
+
 
 
 
@@ -110,10 +118,8 @@ export default function LoginForm() {
 
 
         <div className="container my-4">
-
-
             <div className="row">
-                <div className='col-4'></div>
+                <div className='col-8'></div>
                 <div className='col-4 border bg-warning-subtle'>
                     <form className="row g-3 m-4" onSubmit={handleSubmit}>
                         <h4>Login</h4>
@@ -142,19 +148,33 @@ export default function LoginForm() {
                         <div className="col-12">
                             <button type="submit" className="btn btn-primary">Login</button>
                         </div>
-                        </form>
-                        <div className='col-12'>
-                            <p><b>OR LOGIN USING</b></p>
-                        </div>
-                        <div className="col-12">
-                        
-                        
+                    </form>
+                    <div className='form-text'> Don't have an Account? <NavLink to='/Register'> Sign Up</NavLink></div>
+                    <div className='col-12'>
+                        <p><b>OR LOGIN USING</b></p>
+                    </div>
+                    <div className="col-12">
 
-                        </div>
+                        <LoginSocialGoogle
+                            client_id={"916624276068-2rl77pcr7qkq5m3nrop7d0vee5e7gtd0.apps.googleusercontent.com"}
+                            scope="openid profile email"
+                            discoveryDocs="claims_supported"
+                            access_type="offline"
+                            onResolve={({ provider, data }) => {
+                                console.log(provider, data);
+                            }}
+                            onReject={(err) => {
+                                console.log(err);
+                            }}
+                        >
+                            <GoogleLoginButton />
+                        </LoginSocialGoogle>
 
-                    
+                    </div>
+
+
                 </div>
-                <div className='col-4'></div>
+                {/* <div className='col'></div> */}
             </div>
         </div>
 

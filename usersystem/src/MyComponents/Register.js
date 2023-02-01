@@ -38,7 +38,7 @@ export default function Register() {
         body:JSON.stringify(formValues)
       }).then((res)=>{
         alert('Registered successfully.')
-        navigate('/LoginForm');
+        navigate('/');
       }).catch((err)=>{
         console.log(err.message)
       })

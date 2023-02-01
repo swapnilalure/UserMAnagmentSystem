@@ -31,7 +31,7 @@ export default function EmpDetails() {
             <h4>Employee Name: {empdata.name} </h4>
             <h4>Employee Email: {empdata.email}</h4>
             <h4>Employee Email: {empdata.phone}</h4>
-            <Link to='/EmployeeDetails' className='btn btn-success my-4'>Back</Link>
+            <Link to='/EmployeeDetails' className='btn btn-success my-4 w-25'>Back</Link>
         
         </div>
     }

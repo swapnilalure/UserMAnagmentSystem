@@ -1,17 +1,23 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import {  NavLink } from 'react-router-dom'
 
 export default function header() {
+
+
     return (
 
         <nav className="navbar bg-body-tertiary">
             <div className="container-fluid">
-                <label className="navbar-brand">User Managment System</label>
+                <NavLink to='/'> <label className="navbar-brand">User Managment System</label></NavLink>
                 <div className="d-flex">
+
+                <span> 
+                    
                     {/* <NavLink className="nav-link me-4" to="/EmployeeDetails">Employees</NavLink> */}
-                    <NavLink className="nav-link me-4" to="/LoginForm">LOGIN</NavLink>
-                    <NavLink className="nav-link me-4" to="/Register">SIGNUP</NavLink>
-                </div>     
+                    {/* <NavLink className="nav-link me-4" to="/LoginForm">LOGIN</NavLink> */}
+                    {/* <NavLink className="nav-link me-4" to="/Register">SIGNUP</NavLink> */}
+                    </span>
+                </div>
             </div>
         </nav>
 

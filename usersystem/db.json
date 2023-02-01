@@ -13,6 +13,27 @@
       "phone": "9511621176",
       "active": true,
       "id": 2
+    },
+    {
+      "name": "Swaraj",
+      "email": "swaraj@gmail.com",
+      "phone": "9213151617",
+      "active": true,
+      "id": 3
+    },
+    {
+      "name": "Akshata",
+      "email": "akshata@gmail.com",
+      "phone": "7022451617",
+      "active": true,
+      "id": 4
+    },
+    {
+      "name": "Samrudhi",
+      "email": "samrudhi@gmail.com",
+      "phone": "8045631217",
+      "active": true,
+      "id": 5
     }
   ],
   "user": [
@@ -52,29 +73,32 @@
       "id": "dd5VVKW"
     },
     {
-      "emailId": "swapnil@gmail.com",
-      "password": "swa",
-      "id": "G5H1ALy"
+      "emailId": "priya@gmail.com",
+      "userName": "priya",
+      "mobile": "7512131415",
+      "password": "priya@123",
+      "id": "7gNgerS"
     },
     {
-      "emailId": "varsha@gmail.com",
-      "password": "varsha@123",
-      "id": "wImJrzX"
+      "emailId": "omkar@gmail.com",
+      "userName": "omkar",
+      "mobile": "9312151617",
+      "password": "omkar@123",
+      "id": "xWuspn-"
     },
     {
-      "emailId": "swapnil@gmail.com",
-      "password": "swa",
-      "id": "s9TUXnK"
+      "emailId": "rahul@gmail.com",
+      "userName": "rahul",
+      "mobile": "9612151618",
+      "password": "rahul@123",
+      "id": "sJuPXuT"
     },
     {
-      "emailId": "varsha@gmail.com",
-      "password": "varsha@123",
-      "id": "7dJ_FTw"
-    },
-    {
-      "emailId": "swapnil@gmail.com",
-      "password": "swa",
-      "id": "Qg6AS5r"
+      "emailId": "aniket@gmail.com",
+      "userName": "aniket",
+      "mobile": "9822131415",
+      "password": "aniket@123",
+      "id": "PuWee4_"
     }
   ]
 }
