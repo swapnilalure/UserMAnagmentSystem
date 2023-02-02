@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import '../App.css';
-import { FcGoogle } from 'react-icons/fc'
 
 import { GoogleLoginButton } from "react-social-login-buttons";
 import { LoginSocialGoogle } from "reactjs-social-login";
-import Dashboard from './Dashboard';
-
-
 
 
 
@@ -23,6 +19,7 @@ export default function LoginForm() {
     const [empdata, empdatachange] = useState(null);
     const [formErrors, setFormErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
+    
 
 
     let isValid = false;
@@ -66,7 +63,8 @@ export default function LoginForm() {
             }
 
             if (isValid) {
-                navigate("/Dashboard/" + id)
+                console.log(userdata);
+                navigate("/Dashboard")
             } else {
                 errors.password = "Email or Password is wrong";
                 return errors;
@@ -77,6 +75,7 @@ export default function LoginForm() {
 
 
     }
+
 
     useEffect(() => {
         fetch("http://localhost:8000/user").then((res) => {
@@ -111,6 +110,15 @@ export default function LoginForm() {
 
 
 
+    const redirectDashboard = (provider, data) => {
+
+        console.log(provider, data)
+        if (data !== null) {
+
+            localStorage.setItem('data', JSON.stringify(data))
+            navigate('/Dashboard');
+        }
+    }
 
 
     return (
@@ -161,7 +169,8 @@ export default function LoginForm() {
                             discoveryDocs="claims_supported"
                             access_type="offline"
                             onResolve={({ provider, data }) => {
-                                console.log(provider, data);
+                                // console.log(provider, data);
+                                redirectDashboard(provider, data);
                             }}
                             onReject={(err) => {
                                 console.log(err);

@@ -28,7 +28,8 @@ function App() {
     <Route path='/EmployeeDetails/details/:empid' element={<EmpDetails/>}></Route>
     <Route path='/EmployeeDetails/edit/:empid' element={<EmpEdit/>}></Route>
                             
-    <Route path='/Dashboard/:userid' element={<Dashboard/>}></Route>
+    {/* <Route path='/Dashboard/:id' element={<Dashboard/>}></Route> */}
+    <Route path='/Dashboard' element={<Dashboard />}></Route>
 
 
     </Routes>
